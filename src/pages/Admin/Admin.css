@@ -1,0 +1,117 @@
+.admin {
+    min-height: 100vh;
+    background: #faf7f2;
+    padding: 140px 120px 120px;
+    box-sizing: border-box;
+    padding-bottom: 60px;
+}
+
+.admin__container {
+    border-bottom: 1px solid #a3a298;
+}
+
+.admin__hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto 80px;
+    border-bottom: 1px solid #d8d2c7;
+    padding-bottom: 50px;
+}
+
+.admin__eyebrow {
+    color: #8a7a5c;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-size: 12px;
+}
+
+.admin__title {
+    font-family: "cormorant", sans-serif;
+    font-size: 72px;
+    font-weight: 300;
+    margin: 0 0 20px;
+    color: #1a1a1a;
+}
+
+.admin__subtitle {
+    max-width: 620px;
+    color: #6b6862;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.admin__panel {
+    margin: 0 auto 60px;
+    background: #f5f1ea;
+    border: 1px solid #d8d2c7;
+    padding: 48px;
+    box-sizing: border-box;
+}
+
+.admin__panel-head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.admin__section-label {
+    font-family: "cormorant", sans-serif;
+    font-style: italic;
+    color: #8a7a5c;
+    font-size: 22px;
+    margin: 0;
+}
+
+.admin__section-line {
+    width: 40px;
+    height: 1px;
+    display: inline-block;
+    background: #8a7a5c;
+}
+
+.admin__section-title {
+    font-family: "cormorant", sans-serif;
+    font-size: 42px;
+    font-weight: 300;
+    margin: 0;
+}
+
+.admin__placeholder {
+    text-align: center;
+    color: #6b6862;
+    line-height: 1.7;
+}
+
+.admin__footer {
+    display: flex;
+    justify-content: center;
+}
+
+.admin__footer-text {
+    color: #d8d2c7;
+}
+
+@media screen and (max-width: 1250px) {
+    .admin {
+        padding: 140px 20px 120px;
+    }
+
+    .admin__panel {
+        padding: 30px 15px;
+    }
+}
+
+@media screen and (max-width: 710px) {
+    .admin__hero {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .admin {
+        padding: 140px 8px 120px;
+    }
+}

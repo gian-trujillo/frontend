@@ -1,0 +1,203 @@
+.login {
+    background: #1a1a1a;
+    color: aliceblue;
+}
+
+.login__main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 170px 0;
+    text-align: center;
+}
+
+.login__home-button {
+    position: absolute;
+    top: 36px;
+    right: 270px;
+    padding: 12px 22px;
+    color: #ffffff;
+    text-decoration: none;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.login__home-button::after {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #ffffff;
+    content: '';
+    transition: top 0.3s, opacity 0.3s, transform 0.3s;
+    transform: scale(0.85);
+    opacity: 0;
+    box-sizing: border-box;
+}
+
+.login__home-button:hover::after, .navbar__link:focus::after {
+    top: 0;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.login__home-button::before {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #ffffff;
+    content: '';
+    transition: transform 0.3s;
+    transform: scale(0.85);
+    box-sizing: border-box;
+}
+
+.login__home-button:hover::before {
+    transform: scale(1);
+}
+
+.login__title {
+    font-size: 40px;
+}
+
+.login__line {
+    display: inline-block;
+    height: 1px;
+    width: 80vw;
+    background: #ffffff;
+    margin-bottom: 60px;
+}
+
+.login__form {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 20px 0 10px;
+}
+
+.login__field {
+    color: white;
+    width: 400px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 50px;
+}
+
+.login__field-password {
+    margin-bottom: 0;
+}
+
+.login__field::placeholder {
+    opacity: 0.7;
+    color: white;
+    font-weight: lighter;
+}
+
+.login__password-holder {
+    display: flex;
+    position: relative;
+}
+
+.login__password-icon {
+    position: absolute;
+    right: 10px;
+    top: 30%;
+}
+
+.login__button {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 15px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
+    margin-top: 110px;
+}
+
+.login__tooltip {
+    position: absolute;
+    top: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1a1a1a;
+    color: #faf7f2;
+    border: 1px solid #c8b384;
+    padding: 10px 16px;
+    border-radius: 4px;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    animation: loginTooltipIn 0.25s ease;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+.login__tooltip-text {
+    margin: 0;
+}
+
+.login__button:hover {
+    opacity: 65%;
+}
+
+.login__footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login__footer-text {
+    margin-bottom: 60px;
+}
+
+@keyframes loginTooltipIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 8px);
+    }
+    
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+@media screen and (max-width: 1450px) {
+    .login__home-button {
+        right: 150px;
+    }
+}
+
+@media screen and (max-width: 1090px) {
+    .login__main {
+        padding: 140px;
+    }
+
+    .login__home-button {
+        right: 80px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .login__home-button {
+        right: 30px;
+    }
+
+    .login__field {
+        width: 60vw;
+    }
+}
+
+@media screen and (max-width: 531px) {
+    .login__title {
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+}

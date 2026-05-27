@@ -1,0 +1,223 @@
+.admin__packages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.admin__packages_status {
+    margin: 24px 0;
+    font-size: 14px;
+}
+
+.admin__packages_status_success {
+    color: #4f7d4f;
+}
+
+.admin__packages_status_error {
+    color: #9b3f3f;
+}
+
+.admin__packages_card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 42px;
+}
+
+.admin__packages_card {
+    display: grid;
+    grid-template-rows: 1fr 1.6fr;
+    background: #f5f1ea;
+    border: 1px solid #d8d2c7;
+    padding: 28px;
+    box-sizing: border-box;
+  
+}
+
+.admin__packages_preview {
+    min-height: 420px;
+    background: #faf7f2;
+    border: 1px solid #d8d2c7;
+    padding: 36px 32px 32px;
+    box-sizing: border-box;
+    margin-bottom: 28px;
+}
+
+.admin__packages_form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.admin__packages_field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.admin__packages_field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    color: #6b6862;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+}
+
+.admin__packages_field input,
+.admin__packages_details-editor input {
+    width: 100%;
+    border: 1px solid #d8d2c7;
+    background: #faf7f2;
+    padding: 11px 12px;
+    box-sizing: border-box;
+    font: inherit;
+    color: #1a1a1a;
+}
+
+.admin__packages_field input:focus,
+.admin__packages_details-editor input:focus {
+    outline: none;
+    border-color: #8a7a5c;
+}
+
+.admin__packages_details-editor {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.admin__packages_details-head {
+    padding-top: 20px;
+    border-top: 1px solid #8a7a5c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.admin__packages_details-title {
+    margin: 0;
+    color: #6b6862;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+}
+
+
+.admin__packages_details-add {
+    background: transparent;
+    border: 1px solid #1a1a1a;
+    color: #1a1a1a;
+    padding: 8px 10px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+
+.admin__packages_details-add:disabled {
+    opacity: 0.45;
+    cursor: default;
+}
+
+.admin__packages_detail-row {
+    display: grid;
+    grid-template-columns: 1fr 42px;
+    gap: 8px;
+}
+
+.admin__packages_detail-remove {
+    border: 1px solid #d8d2c7;
+    background: #faf7f2;
+    color: #9b3f3f;
+    cursor: pointer;
+    font-size: 22px;
+    line-height: 1;
+    transition: all 0.25s ease;
+}
+
+.admin__packages_detail-remove:hover:not(:disabled) {
+    background: #9b3f3f;
+    border-color: #9b3f3f;
+    color: #faf7f2;
+}
+
+.admin__packages_detail-remove:disabled {
+    opacity: 0.35;
+    cursor: default;
+}
+
+.admin__packages_details-add:hover:not(:disabled) {
+    background: #1a1a1a;
+    color: #faf7f2;
+}
+
+
+.admin__packages_details-note {
+    margin: 0;
+    color: #8a7a5c;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+}
+
+.admin__packages_save-button {
+    margin-top: auto;
+    background: transparent;
+    border: 1px solid #1a1a1a;
+    color: #1a1a1a;
+    padding: 13px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.admin__packages_save-button:hover:not(:disabled) {
+    background: #1a1a1a;
+    color: #faf7f2;
+}
+
+.admin__packages_save-button:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+@media screen and (max-width: 1100px) {
+    .admin__packages {
+        padding: 50px;
+    }
+
+    .admin__packages_card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .admin__packages {
+        padding: 8px;
+    }
+
+    .admin__packages_card {
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .admin__packages_card-grid {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .admin__packages_card {
+        padding: 30px;
+        grid-template-rows: 1fr 1.5fr;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .admin__packages_card {
+        padding: 10px;
+    }
+}

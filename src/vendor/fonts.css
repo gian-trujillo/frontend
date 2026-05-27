@@ -1,0 +1,47 @@
+@font-face {
+    font-family: "inter";
+    font-weight: 300;
+    src: url(./fonts/web/Inter-Light.woff2);
+}
+
+@font-face {
+    font-family: "inter";
+    font-weight: 400;
+    src: url(./fonts/web/Inter-Regular.woff2);
+}
+
+@font-face {
+    font-family: "inter";
+    font-weight: 500;
+    src: url(./fonts/web/Inter-Medium.woff2);
+}
+
+@font-face {
+    font-family: "inter";
+    font-weight: 900;
+    src: url(./fonts/web/Inter-Black.woff2);
+}
+
+@font-face {
+    font-family: "cormorant";
+    font-weight: 300;
+    src: url(../vendor/fonts/cormorant/CormorantGaramondLight.woff2);
+}
+
+@font-face {
+    font-family: "cormorant";
+    font-weight: 400;
+    src: url(./fonts/cormorant/CormorantGaramondRegular.woff2);
+}
+
+@font-face {
+    font-family: "cormorant";
+    font-weight: 500;
+    src: url(./fonts/cormorant/CormorantGaramondMedium.woff2);
+}
+
+@font-face {
+    font-family: "cormorant";
+    font-weight: 900;
+    src: url(./fonts/cormorant/CormorantGaramondBold.woff2);
+}

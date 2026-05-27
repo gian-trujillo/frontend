@@ -1,0 +1,268 @@
+.packages {
+    display: flex;
+    background: #faf7f2;
+    justify-content: center;
+    padding: 160px 200px 200px;
+}
+
+.packages__container {
+    max-width: 1200px;
+}
+
+.packages__head {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+    margin-bottom: 80px;
+}
+
+.packages__head-left {
+    box-sizing: border-box;
+}
+
+.packages__head-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.packages__head-number {
+    font-family: "cormorant", sans-serif;
+    font-style: italic;
+}
+
+.packages__head-line {
+    display: inline-block;
+    width: 30px;
+    height: 1px;
+    background: black;
+}
+
+.packages__head-topic {
+    font-family: "cormorant", sans-serif;
+    letter-spacing: 2px;
+}
+
+.packages__head-title {
+    font-family: "cormorant", sans-serif;
+    font-size: 55px;
+    font-weight: 300;
+}
+
+.packages__head-emphasis {
+    color: #8a7a5c;
+}
+
+.packages__head_text {
+    color: #6b6862;
+    font-size: 15px;
+    line-height: 1.7;
+    font-weight: 300;
+}
+
+.packages__card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.packages__card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #f5f1ea;
+    border: 1px solid #d8d2c7;
+    padding: 36px 32px 32px;
+    transition: all 0.4s ease;
+}
+
+.packages__card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 12px 12px 10px rgba(0, 0, 0, 0.12);
+}
+
+.packages__card-label {
+    font-style: italic;
+    font-size: 13px;
+    color: #8a7a5c;
+    margin-bottom: 13px;
+}
+
+.packages__card-title {
+    font-family: "cormorant", sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    margin: 0 0 6px;
+    color: #1a1a1a;
+}
+
+.packages__card-subtitle {
+    color: #6b6862;
+    margin: 0 0 30px;
+    letter-spacing: 0.2em;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.packages__card-price {
+    font-family: "cormorant", sans-serif;
+    font-size: 38px;
+    align-items: baseline;
+    margin-bottom: 25px;
+}
+
+.packages__card-currency {
+    font-size: 14px;
+    color: #6b6862;
+}
+
+.packages__card-emphasis {
+    font-size: 12px;
+    color: #6b6862;
+}
+
+.packages__card-details {
+    list-style: none;
+    margin-top: 40px;
+    margin-bottom: 45px;
+    padding: 0;
+}
+
+.packages__card-item {
+    padding: 12px 0;
+    border-top: 1px solid #d8d2c7;
+    font-weight: 300;
+    color: #3a3a3a;
+    font-size: 15px;
+}
+
+.packages__card-item:last-child {
+    border-bottom: 1px solid #d8d2c7;
+}
+
+.packages__card-item::before {
+    content: '—';
+    margin-right: 12px;
+    font-size: 13px;
+    font-weight: 300;
+    color: #8a7a5c;
+}
+
+.packages__card-button {
+    padding: 14px;
+    box-sizing: border-box;
+    text-align: center;
+    background: transparent;
+    border: 1px solid #1a1a1a;
+    color: #1a1a1a;
+    width: 100%;
+    margin-top: auto;
+    transition: all 0.3s;
+}
+
+.packages__card-button:hover {
+    background: #1a1a1a;
+    color: #f5f1ea;
+}
+
+@media screen and (max-width: 1560px) {
+    .packages {
+        padding: 160px 20px 200px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .packages {
+        padding: 160px 220px 200px;
+    }
+
+    .packages__card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .packages__card {
+        height: auto;
+    }
+
+}
+
+@media screen and (max-width: 1010px) {
+    .packages {
+        padding: 160px 180px 200px;
+    }
+
+    .packages__card-grid {
+        gap: 10px;
+    }
+}
+
+@media screen and (max-width: 920px) {
+    .packages {
+        padding: 160px 120px 200px;
+    }
+
+    .packages__card-grid {
+        gap: 10px;
+    }
+
+    .packages__card-subtitle {
+        margin: 0 0 5px;
+    }
+
+    .packages__card-price {
+        margin-top: 25px;
+        margin-bottom: 16px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .packages {
+        padding: 160px 60px 200px;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .packages {
+        padding: 160px 20px 200px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .packages {
+        padding: 160px 20px 200px;
+    }
+
+    .packages__card-grid {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .packages__card {
+        margin: 0 100px;
+    }
+}
+
+@media screen and (max-width: 515px) {
+    .packages__head {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .packages__head_text {
+        text-align: center;
+    }
+
+    .packages__card {
+        margin: 0 60px;
+    }
+}
+
+@media screen and (max-width: 435px) {
+
+    .packages__card {
+        margin: 0 60px;
+    }
+}

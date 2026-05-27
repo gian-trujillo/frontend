@@ -1,121 +1,64 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { Routes, Route, useNavigate, Navigate  } from "react-router-dom";
+import { useState } from "react";
+import Home from "./pages/Home";
+import Login from "./components/Login/Login";
+import Admin from "./pages/Admin/Admin";
+import ContactPage from './pages/ContactPage/ContactPage'
+import { login } from "./utils/api";
+import { setToken, removeToken, getToken } from "./utils/tokens";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isLoggedIn, setIsLoggedIn] = useState(() => !!getToken());
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('');
+  const [selectedPackage, setSelectedPackage] = useState('');
+  
+  const navigate = useNavigate();
+
+  const handleLogin = ({ email, password }) => {
+    setErrorMessage('')
+    setIsSubmitting(true);
+
+    login({ email, password })
+    .then((data) => {
+      if (!data || !data.token) {
+        throw new Error('No se recibio un token');
+      }
+      setToken(data.token);
+      setIsLoggedIn(true);
+      navigate('/admin', { replace: true });
+    })
+    .catch(() => {
+      setErrorMessage('Credenciales no válidas');
+    })
+    .finally(() => {
+      setIsSubmitting(false);
+    });
+  };
+
+  const handleLogout = () => {
+    removeToken();
+    setIsLoggedIn(false);
+    navigate('/login', { replace: true });
+  }
+
+  const  handleSelectChange = (e) => {
+    setSelectedPackage(e.target.value)
+  }
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+    
+    <Routes>
+      <Route path="/" element={<Home isLoggedIn={isLoggedIn} setSelectedPackage={setSelectedPackage} selectedPackage={selectedPackage} handleSelectChange={handleSelectChange} />} />
+      <Route path="/contact" element={<ContactPage setSelectedPackage={setSelectedPackage} selectedPackage={selectedPackage} handleSelectChange={handleSelectChange} />} />
+      <Route path="/login" element={
+        isLoggedIn ? (<Navigate to='/admin' replace />) : (<Login handleLogin={handleLogin} isSubmitting={isSubmitting} errorMessage={errorMessage} clearError={() => setErrorMessage('')} />)
+      } />
+      <Route path="/admin" element={
+        isLoggedIn ? (<Admin isLoggedIn={isLoggedIn} onLogout={handleLogout} />) : (<Navigate to='/login' replace />)
+      } />
+    </Routes>
+    
   )
 }
 
