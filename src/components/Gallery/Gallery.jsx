@@ -93,7 +93,7 @@ function Gallery({ setActiveGallery, activeGallery, galleryItems, galleryButtons
         return (
             <img
                 src={getOptimizedImageUrl(item.cloudinaryUrl, { width: getImageWidthBySlot(slot) })}
-                alt={item.title || activeGallery}
+                alt='Fotografía profesional en Monterrey'
                 className={`discover__gallery-photo ${className}`}
                 loading="lazy"
                 decoding="async"

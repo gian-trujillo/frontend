@@ -34,7 +34,7 @@ function Login({ handleLogin, isSubmitting, errorMessage, clearError }) {
     return (
         <div className="login">
             <div className="login__main">
-                <NavLink to='/' className="login__home-button">Home</NavLink>
+                <NavLink to='/' className="login__home-button">Inicio</NavLink>
                 <h2 className="login__title">Inicia sesión</h2>
                 <span className="login__line"></span>
                 <form action="" className="login__form" onSubmit={handleSubmit}>

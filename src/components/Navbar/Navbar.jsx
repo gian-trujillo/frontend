@@ -41,16 +41,16 @@ function Navbar({ variant = 'home', isLoggedIn = false, onLogout}) {
               {isLoggedIn && (
                   <li className='navbar__link-holder'><NavLink to="/admin" className={linkClassName}>Admin</NavLink></li>
                 )}
-                <li className='navbar__link-holder'><a href="#about" className={linkClassName}>About</a></li>
-                <li className='navbar__link-holder'><a href="#gallery" className={linkClassName}>Gallery</a></li>
-                <li className='navbar__link-holder'><a href="#packages" className={linkClassName}>Packages</a></li>
-                <li className='navbar__link-holder'><NavLink to="/contact" className={linkClassName}>Contact</NavLink></li>
+                <li className='navbar__link-holder'><a href="#about" className={linkClassName}>Sobre mí</a></li>
+                <li className='navbar__link-holder'><a href="#gallery" className={linkClassName}>Galería</a></li>
+                <li className='navbar__link-holder'><a href="#packages" className={linkClassName}>Paquetes</a></li>
+                <li className='navbar__link-holder'><NavLink to="/contact" className={linkClassName}>Contacto</NavLink></li>
               </>
             )}
 
             {variant === 'admin' && (
               <>
-                  <li className='navbar__link-holder'><NavLink to="/" className={linkClassName}>Home</NavLink></li>
+                  <li className='navbar__link-holder'><NavLink to="/" className={linkClassName}>Inicio</NavLink></li>
                   <li className='navbar__link-holder'>
                     <button type='button' className={`${linkClassName} navbar__link_button`} onClick={handleLogout}>Cerrar sesión</button>
                   </li>

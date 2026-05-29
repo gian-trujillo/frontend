@@ -105,6 +105,12 @@ function AdminGalleryEditor() {
 
         const mediaType = file.type.startsWith('video') ? 'video' : 'image';
 
+        // if (file.size > 90) {
+            //investigar como hacerlo
+            //hacer un console.log de file, investigar si hay size, cortar el flujo aqui si es mayor a 90mb con return.
+            //return;
+        // }
+
         const title = currentItem?.title || `${activeCategory} ${slot}`;
 
         setReplacingSlot(slot);
@@ -242,13 +248,13 @@ function AdminGalleryEditor() {
                                     <label className="admin__gallery_replace-button">
                                         {replacingSlot === slot.id ? 'Reemplazando...' : 'Reemplazar'}
                                         <input
-                                        type="file"
-                                        accept="image/*,video/*"
-                                        className="admin__gallery_file-input"
-                                        disabled={replacingSlot === slot.id}
-                                        onChange={(e) => {
-                                            handleReplace(slot.id, item, e.target.files[0]);
-                                            e.target.value = '';
+                                            type="file"
+                                            accept="image/*,video/*"
+                                            className="admin__gallery_file-input"
+                                            disabled={replacingSlot === slot.id}
+                                            onChange={(e) => {
+                                                handleReplace(slot.id, item, e.target.files[0]);
+                                                e.target.value = '';
                                         }}
                                         />
                                     </label>

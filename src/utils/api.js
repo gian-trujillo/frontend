@@ -1,4 +1,4 @@
-const BASE_URL = 'http://api.skylens.adventphoto.com';
+const BASE_URL = 'https://api.skylens.adventphoto.com';
 
 const checkResponse = async (res) => {
   if (res.ok) {
