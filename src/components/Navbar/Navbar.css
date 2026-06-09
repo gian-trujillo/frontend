@@ -21,6 +21,12 @@
     color: #1a1a1a;
 }
 
+.navbar__logo {
+    height: 90px;
+    width: 140px;
+    opacity: 0.8;
+}
+
 .navbar__title {
     font-family: "cormorant", sans-serif;
     font-weight: 500;

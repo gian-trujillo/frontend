@@ -2,6 +2,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import AdminGalleryEditor from "../../components/AdminGalleryEditor/AdminGalleryEditor";
 import AdminPackagesEditor from "../../components/AdminPackagesEditor/AdminPackagesEditor";
 import AdminFilmsEditor from "../../components/AdminFilmsEditor/AdminFilmsEditor";
+import AdminPromotionsEditor from "../../components/AdminPromotionsEditor/AdminPromotionsEditor";
 
 function Admin({ onLogout, isLoggedIn }) {
   return (
@@ -17,6 +18,7 @@ function Admin({ onLogout, isLoggedIn }) {
 
             <AdminGalleryEditor />
             <AdminFilmsEditor />
+            <AdminPromotionsEditor />
             <AdminPackagesEditor />
           </div>
           <div className="admin__footer">

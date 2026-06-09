@@ -154,6 +154,10 @@
 }
 
 @media screen and (max-width: 420px) {
+    .hero__content {
+        margin-bottom: 20px;
+    }
+
     .hero__eyebrow {
         gap: 8px;
     }

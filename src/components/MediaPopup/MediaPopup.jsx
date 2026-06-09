@@ -5,6 +5,7 @@ import './MediaPopup.css';
 import {
   getOptimizedImageUrl,
   getOptimizedVideoUrl,
+  getResponsiveImageSrcSet,
 } from '../../utils/cloudinary';
 
 
@@ -109,7 +110,7 @@ function MediaPopup({ selectedMedia, setSelectedMedia, mediaItems, onClose,}) {
           <video
             key={selectedMedia._id}
             src={getOptimizedVideoUrl(selectedMedia.cloudinaryUrl, {
-              width: 1600,
+              width: 1400,
             })}
             className={`media-popup__media ${
               isMediaLoading ? 'media-popup__media_loading' : ''
@@ -124,12 +125,19 @@ function MediaPopup({ selectedMedia, setSelectedMedia, mediaItems, onClose,}) {
           <img
             key={selectedMedia._id}
             src={getOptimizedImageUrl(selectedMedia.cloudinaryUrl, {
-              width: 1800,
+              width: 1600,
+              crop: 'limit',
             })}
-            alt={selectedMedia.title || ''}
+            srcSet={getResponsiveImageSrcSet(selectedMedia.cloudinaryUrl, {
+              widths: [768, 1024, 1400, 1600, 1800],
+              crop: 'limit',
+            })}
+            sizes="(max-width: 768px) 100vw, 90vw"
+            alt={selectedMedia.title || 'Fotografía profesional en Monterrey'}
             className={`media-popup__media ${
               isMediaLoading ? 'media-popup__media_loading' : ''
             }`}
+            decoding="async"
             onLoad={() => setIsMediaLoading(false)}
           />
         )}

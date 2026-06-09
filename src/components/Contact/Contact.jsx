@@ -116,11 +116,11 @@ function Contact({ selectedPackage, onChange, inputRef, variant = 'home' }) {
                             </div>
                             <div className="contact__info-grid">
                                 <p className="contact__info-grid_title">Telefono</p>
-                                <p className="contact__info-grid_subtitle">+52 81 0000 0000</p>
+                                <p className="contact__info-grid_subtitle">+52 81 2019 7769</p>
                             </div>
                             <div className="contact__info-grid">
                                 <p className="contact__info-grid_title">Correo electrónico</p>
-                                <p className="contact__info-grid_subtitle">giantrujillo98@gmail.com</p>
+                                <p className="contact__info-grid_subtitle">skylensadventures@gmail.com</p>
                             </div>
                             <div className="contact__info-grid">
                                 <p className="contact__info-grid_title">Horario</p>

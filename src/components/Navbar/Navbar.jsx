@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { NavLink } from "react-router-dom";
+import logo from "../../../public/skylens_adventures_logo.png"
 
 function Navbar({ variant = 'home', isLoggedIn = false, onLogout}) {
   const [scrolled, setScrolled] = useState(false);
@@ -28,7 +29,8 @@ function Navbar({ variant = 'home', isLoggedIn = false, onLogout}) {
     return (
         <div className={`navbar ${isSolidNavbar ? 'navbar__scrolled' : ''}`}>
           <div className="navbar__title">
-            <p>Gian Trujillo</p>
+            <img className='navbar__logo' src={logo} alt="Logo de Skylens Adventures - Servicios de fotografía" />
+            {/* <p>Gian Trujillo</p> */}
           </div>
           <button type='button' className={`navbar__menu-button ${isMenuOpen ? 'navbar__menu-button_open' : ''}`} onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Abrir menú de navegación" aria-expanded={isMenuOpen}>
             <span className="navbar__menu-line"></span>

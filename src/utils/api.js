@@ -98,6 +98,53 @@ export const updatePackage = (id, data) =>
     body: JSON.stringify(data),
   }, true);
 
+  // Promotions
+
+export const getActivePromotions = () =>
+  makeRequest('/promotions/active');
+
+export const getPromotions = () =>
+  makeRequest('/promotions');
+
+export const createPromotion = (data) =>
+  makeRequest('/promotions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  });
+
+export const updatePromotion = (id, data) =>
+  makeRequest(`/promotions/${id}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  });
+
+export const deletePromotion = (id) =>
+  makeRequest(`/promotions/${id}`, {
+    method: 'DELETE',
+  });
+
+export const replacePromotionImage = (id, file) => {
+  const formData = new FormData();
+
+  formData.append('image', file);
+
+  return makeRequest(`/promotions/${id}/image`, {
+    method: 'PATCH',
+    body: formData,
+  });
+};
+
+export const deletePromotionImage = (id) =>
+  makeRequest(`/promotions/${id}/image`, {
+    method: 'DELETE',
+  });
+
 //Contact
 
 export const sendContactForm = (data) =>

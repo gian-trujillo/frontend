@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { getGallery, getPackages } from '../utils/api';
+import { getGallery, getPackages, getActivePromotions } from '../utils/api';
 import Navbar from "../components/Navbar/Navbar"
 import Hero from "../components/Hero/Hero"
 import About from "../components/About/About"
@@ -9,6 +9,7 @@ import Contact from "../components/Contact/Contact"
 import Footer from "../components/Footer/Footer"
 import Gallery from '../components/Gallery/Gallery';
 import Films from '../components/Films/Films';
+import Promotions from "../components/Promotions/Promotions";
 
 function Home({ isLoggedIn, setSelectedPackage, selectedPackage, handleSelectChange }) {
     const [activeGallery, setActiveGallery] = useState(null);
@@ -19,6 +20,9 @@ function Home({ isLoggedIn, setSelectedPackage, selectedPackage, handleSelectCha
     const [packages, setPackages] = useState([]);
     const [isPackagesLoading, setIsPackagesLoading] = useState(true);
     const [packagesError, setPackagesError] = useState('');
+    const [promotions, setPromotions] = useState([]);
+  const [isPromotionsLoading, setIsPromotionsLoading] = useState(true);
+  const [promotionsError, setPromotionsError] = useState('');
 
     const galleryButtons = [
         {
@@ -82,6 +86,38 @@ function Home({ isLoggedIn, setSelectedPackage, selectedPackage, handleSelectCha
           setIsPackagesLoading(false);
         });
     }, []);
+
+    useEffect(() => {
+      let isMounted = true;
+
+      getActivePromotions()
+        .then((data) => {
+          if (!isMounted) {
+            return;
+          }
+
+          setPromotions(data);
+          setPromotionsError('');
+        })
+        .catch((err) => {
+          if (!isMounted) {
+            return;
+          }
+
+          setPromotionsError(err);
+        })
+        .finally(() => {
+          if (!isMounted) {
+            return;
+          }
+
+          setIsPromotionsLoading(false);
+        });
+
+      return () => {
+        isMounted = false;
+      };
+    }, []);
     
     return (
         <>
@@ -91,6 +127,7 @@ function Home({ isLoggedIn, setSelectedPackage, selectedPackage, handleSelectCha
           <Discover galleryButtons={galleryButtons} setActiveGallery={setActiveGallery} activeGallery={activeGallery} />
           {activeGallery && <Gallery setActiveGallery={setActiveGallery} activeGallery={activeGallery} galleryItems={galleryItems} galleryButtons={galleryButtons} isGalleryLoading={isGalleryLoading} galleryError={galleryError} />}
           <Films />
+          <Promotions promotions={promotions} isPromotionsLoading={isPromotionsLoading} promotionsError={promotionsError} />
           <Packages onSelect={handleButtonClick} packages={packages} isPackagesLoading={isPackagesLoading} packagesError={packagesError} />
           <Contact onChange={handleSelectChange} selectedPackage={selectedPackage} inputRef={nameInputRef} />
           <Footer />

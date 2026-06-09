@@ -3,7 +3,7 @@ export const getOptimizedImageUrl = (
   {
     width = 1200,
     height,
-    crop = 'fill',
+    crop,
     quality = 'auto',
     format = 'auto',
   } = {},
@@ -12,8 +12,10 @@ export const getOptimizedImageUrl = (
     return '';
   }
 
+  const selectedCrop = crop || (height ? 'fill' : 'limit');
+
   const transformations = [
-    `c_${crop}`,
+    `c_${selectedCrop}`,
     `w_${width}`,
     height ? `h_${height}` : null,
     `q_${quality}`,
@@ -23,6 +25,35 @@ export const getOptimizedImageUrl = (
     .join(',');
 
   return url.replace('/upload/', `/upload/${transformations}/`);
+};
+
+export const getResponsiveImageSrcSet = (
+  url,
+  {
+    widths = [480, 768, 1024, 1400, 1800],
+    height,
+    crop,
+    quality = 'auto',
+    format = 'auto',
+  } = {},
+) => {
+  if (!url) {
+    return '';
+  }
+
+  return widths
+    .map((width) => {
+      const optimizedUrl = getOptimizedImageUrl(url, {
+        width,
+        height,
+        crop,
+        quality,
+        format,
+      });
+
+      return `${optimizedUrl} ${width}w`;
+    })
+    .join(', ');
 };
 
 export const getOptimizedVideoUrl = (
@@ -38,8 +69,8 @@ export const getOptimizedVideoUrl = (
   }
 
   const transformations = [
+    `c_limit`,
     `w_${width}`,
-    'c_limit',
     `q_${quality}`,
     `f_${format}`,
   ].join(',');

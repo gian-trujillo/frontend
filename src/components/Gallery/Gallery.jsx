@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getOptimizedImageUrl, getOptimizedVideoUrl } from "../../utils/cloudinary";
+import { getOptimizedImageUrl, getOptimizedVideoUrl, getResponsiveImageSrcSet } from "../../utils/cloudinary";
 import MediaPopup from "../MediaPopup/MediaPopup";
 
 function Gallery({ setActiveGallery, activeGallery, galleryItems, galleryButtons, isGalleryLoading, galleryError }) {
@@ -79,7 +79,9 @@ function Gallery({ setActiveGallery, activeGallery, galleryItems, galleryButtons
         if (item.mediaType === 'video') {
             return (
                 <video
-                    src={getOptimizedVideoUrl(item.cloudinaryUrl, { width: getImageWidthBySlot(slot) })}
+                    src={getOptimizedVideoUrl(item.cloudinaryUrl, {
+                        width: Math.min(getImageWidthBySlot(slot), 900),
+                    })}
                     className={`discover__gallery-photo ${className}`}
                     controls
                     muted
@@ -92,8 +94,20 @@ function Gallery({ setActiveGallery, activeGallery, galleryItems, galleryButtons
 
         return (
             <img
-                src={getOptimizedImageUrl(item.cloudinaryUrl, { width: getImageWidthBySlot(slot) })}
-                alt='Fotografía profesional en Monterrey'
+                src={getOptimizedImageUrl(item.cloudinaryUrl, {
+                    width: getImageWidthBySlot(slot),
+                })}
+                srcSet={getResponsiveImageSrcSet(item.cloudinaryUrl, {
+                    widths: [480, 700, 900, 1200, 1400],
+                })}
+                sizes={
+                    slot === 'top-left-large'
+                        ? '(max-width: 768px) 100vw, 55vw'
+                        : slot === 'top-right-large'
+                            ? '(max-width: 768px) 100vw, 35vw'
+                            : '(max-width: 768px) 100vw, 28vw'
+                }
+                alt={item.title || 'Fotografía profesional en Monterrey'}
                 className={`discover__gallery-photo ${className}`}
                 loading="lazy"
                 decoding="async"
