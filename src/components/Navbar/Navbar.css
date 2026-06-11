@@ -167,6 +167,12 @@
         align-items: center;
     }
 
+    .navbar__logo {
+        margin-top: 4px;
+        height: 40px;
+        width: 65px;
+    }
+
     .navbar__title {
         font-size: 22px;
         position: relative;
