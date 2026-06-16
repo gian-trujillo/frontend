@@ -11,3 +11,7 @@ createRoot(document.getElementById('root')).render(
     </BrowserRouter>
   </StrictMode>,
 )
+
+requestAnimationFrame(() => {
+  document.dispatchEvent(new Event('render-complete'));
+});

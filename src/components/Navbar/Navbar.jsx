@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { NavLink } from "react-router-dom";
-import logo from "../../../public/skylens_adventures_logo.png"
+import logo from "/skylens_adventures_logo.png"
 
 function Navbar({ variant = 'home', isLoggedIn = false, onLogout}) {
   const [scrolled, setScrolled] = useState(false);

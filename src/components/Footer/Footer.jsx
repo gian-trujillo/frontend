@@ -14,7 +14,7 @@ function Footer() {
                     <h5 className='footer__list-title'>sitio</h5>
                     <ul className='footer__list'>
                         <li className='footer__list-item'><a href="#about" className='footer__base-link'>Acerca de mí</a></li>
-                        <li className='footer__list-item'><a href="#discover" className='footer__base-link'>Galería</a></li>
+                        <li className='footer__list-item'><a href="#gallery" className='footer__base-link'>Galería</a></li>
                         <li className='footer__list-item'><a href="#packages" className='footer__base-link'>Paquetes</a></li>
                         <li className='footer__list-item'><a href="#contact" className='footer__base-link'>Contacto</a></li>
                     </ul>

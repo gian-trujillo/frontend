@@ -29,7 +29,7 @@ function Discover({ galleryButtons, setActiveGallery, activeGallery }) {
                         <span className="discover__info_line--large"></span>
                     </div>
                     <h2 className="discover__info_title">Descubre <span className="discover__info_emphasis">mi trabajo</span>.</h2>
-                    <p className="discover__info_subtitle">Selecciona una categoría para abrir la galería. Cada colección reúne fotografía y video reciente.</p>
+                    <p className="discover__info_subtitle"><em className="discover__info_highlight">Selecciona</em> una categoría para abrir la galería. Cada colección reúne fotografía y video reciente.</p>
                 </div>
                 <div className="discover__buttons">
                     {galleryButtons.map((button) => (

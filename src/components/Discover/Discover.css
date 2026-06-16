@@ -79,6 +79,11 @@
     color: #38352e;
 }
 
+.discover__info_highlight {
+    font-weight: 400;
+    color: #4d3d20;
+}
+
 .discover__buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -162,6 +167,12 @@
     font-family: "cormorant", sans-serif;
     font-size: 30px;
     font-weight: 300;
+    color: #1a1a1a;
+    transition: 0.4s ease;
+}
+
+.discover__button:hover .discover__button_title {
+    color: white;
 }
 
 .discover__button:hover .discover__button_sign {

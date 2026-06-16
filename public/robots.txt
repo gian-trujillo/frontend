@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://skylens.adventphoto.com/sitemap.xml
+Sitemap: https://skylensadventures.com/sitemap.xml

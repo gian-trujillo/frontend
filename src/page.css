@@ -1,7 +1,10 @@
 body {
   font-family: "inter", sans-serif;
+  background-color: #101010;
 }
 
 html {
   scroll-behavior: smooth;
+  background-color: #101010;
+  color: #1a1a1a;
 }
