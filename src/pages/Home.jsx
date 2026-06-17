@@ -120,18 +120,18 @@ function Home({ isLoggedIn, setSelectedPackage, selectedPackage, handleSelectCha
     }, []);
     
     return (
-        <>
-          <Navbar variant='home' isLoggedIn={isLoggedIn} />
-          <Hero />
-          <About />
-          <Discover galleryButtons={galleryButtons} setActiveGallery={setActiveGallery} activeGallery={activeGallery} />
-          {activeGallery && <Gallery setActiveGallery={setActiveGallery} activeGallery={activeGallery} galleryItems={galleryItems} galleryButtons={galleryButtons} isGalleryLoading={isGalleryLoading} galleryError={galleryError} />}
-          <Films />
-          <Promotions promotions={promotions} isPromotionsLoading={isPromotionsLoading} promotionsError={promotionsError} />
-          <Packages onSelect={handleButtonClick} packages={packages} isPackagesLoading={isPackagesLoading} packagesError={packagesError} />
-          <Contact onChange={handleSelectChange} selectedPackage={selectedPackage} inputRef={nameInputRef} />
-          <Footer />
-        </>
+      <>
+        <Navbar variant='home' isLoggedIn={isLoggedIn} />
+        <Hero />
+        <About />
+        <Discover galleryButtons={galleryButtons} setActiveGallery={setActiveGallery} activeGallery={activeGallery} />
+        {activeGallery && <Gallery setActiveGallery={setActiveGallery} activeGallery={activeGallery} galleryItems={galleryItems} galleryButtons={galleryButtons} isGalleryLoading={isGalleryLoading} galleryError={galleryError} />}
+        <Films />
+        <Promotions promotions={promotions} isPromotionsLoading={isPromotionsLoading} promotionsError={promotionsError} />
+        <Packages onSelect={handleButtonClick} packages={packages} isPackagesLoading={isPackagesLoading} packagesError={packagesError} />
+        <Contact onChange={handleSelectChange} selectedPackage={selectedPackage} inputRef={nameInputRef} />
+        <Footer />
+      </>
     )
 }
 
