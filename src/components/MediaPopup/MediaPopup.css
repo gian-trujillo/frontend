@@ -162,6 +162,14 @@
 
 @media screen and (max-width: 600px) {
     .media-popup__nav {
-        display: none;
+        top: 94%;
+    }
+
+    .media-popup__nav_right {
+        right: 30%;
+    }
+
+    .media-popup__nav_left {
+        left: 30%;
     }
 }
