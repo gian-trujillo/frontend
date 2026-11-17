@@ -37,7 +37,7 @@ function Navbar({ variant = 'home', isLoggedIn = false, onLogout}) {
             <span className="navbar__menu-line"></span>
             <span className="navbar__menu-line"></span>
           </button>
-          <ul className={`navbar__nav ${isMenuOpen ? 'navbar__nav_open' : ''}`}>
+          <ul className={`navbar__nav ${isMenuOpen ? 'navbar__nav_open' : ''}`} onClick={closeMenu}>
             {variant === 'home' && (
               <>
               {isLoggedIn && (

@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "build:ssr": "vite build && node prerender.mjs",
-    "deploy": "npm run build:ssr && scp -r ./dist/* giantrujillo98@skylens.adventphoto.com:/home/giantrujillo98/frontend"
+    "deploy": "npm run build:ssr && scp -r ./dist/* giantrujillo98@skylensadventures.com:/home/giantrujillo98/frontend"
   },
   "dependencies": {
     "normalize.css": "^8.0.1",
